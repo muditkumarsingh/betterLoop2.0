@@ -112,6 +112,7 @@ router.get("/:userId", authMiddleware, async (req, res) => {
     const logs = await DailyLog.find({
       userId: req.params.userId
     }).sort({ date: 1 });
+    
 
     res.json(logs);
 
