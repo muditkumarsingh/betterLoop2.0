@@ -6,13 +6,35 @@ const predictRisk = async (features) => {
 
   try {
 
+    // ----------------------------
+    // Rule-based early evaluation
+    // ----------------------------
+
+    let ruleRisk = 0;
+
+    if (features.recentRelapses > 0) ruleRisk += 2;
+    if (features.recentTriggers > 1) ruleRisk += 1;
+    if (features.avgUrgeLevel >= 4) ruleRisk += 1;
+    if (features.missedTasks > 0) ruleRisk += 1;
+    if (features.streak >= 3) ruleRisk -= 1;
+
+    // baseline risk estimate
+    let baseRiskLevel = "moderate";
+
+    if (ruleRisk >= 3) baseRiskLevel = "high";
+    else if (ruleRisk <= 0) baseRiskLevel = "low";
+
+    // ----------------------------
+    // Send behavioral summary to HF
+    // ----------------------------
+
     const text = `
-User behavior summary:
-Streak ${features.streak}.
-Recent triggers ${features.recentTriggers}.
-Recent relapses ${features.recentRelapses}.
-Missed tasks ${features.missedTasks}.
-Average urge level ${features.avgUrgeLevel}.
+User recovery behavior summary:
+Clean streak: ${features.streak} days.
+Recent triggers: ${features.recentTriggers}.
+Recent relapses: ${features.recentRelapses}.
+Missed recovery tasks: ${features.missedTasks}.
+Average urge level: ${features.avgUrgeLevel}.
 `;
 
     const result = await hf.textClassification({
@@ -22,22 +44,38 @@ Average urge level ${features.avgUrgeLevel}.
 
     const prediction = result[0];
 
-    let riskLevel = "moderate";
+    // ----------------------------
+    // Combine ML + rules
+    // ----------------------------
+
+    let riskLevel = baseRiskLevel;
     let riskScore = 0.5;
 
     if (prediction.label === "NEGATIVE") {
       riskLevel = "high";
-      riskScore = Math.min(prediction.score, 0.85);
+      riskScore = Math.max(prediction.score, 0.6);
     }
 
     if (prediction.label === "POSITIVE") {
       riskLevel = "low";
-      riskScore = 1 - prediction.score;
+      riskScore = Math.min(1 - prediction.score, 0.4);
+    }
+
+    // override with rules if strong signal
+    if (ruleRisk >= 3) {
+      riskLevel = "high";
+      riskScore = 0.8;
+    }
+
+    if (ruleRisk <= 0) {
+      riskLevel = "low";
+      riskScore = 0.2;
     }
 
     return {
       modelLabel: prediction.label,
       modelScore: prediction.score,
+      ruleScore: ruleRisk,
       riskLevel,
       riskScore
     };
