@@ -33,7 +33,7 @@ const NotificationItem = ({ isTodayLogAdded, handleLogCreated }) => {
 
                 <div className="flex items-center gap-3">
 
-                    <div className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl ${iconColor}`}>
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center rounded-xl ${iconColor}`}>
                         <span className="text-white font-bold text-xs sm:text-sm">O</span>
                     </div>
 

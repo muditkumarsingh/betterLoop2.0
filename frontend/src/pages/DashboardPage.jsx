@@ -71,7 +71,7 @@ function DashboardPage() {
 
   return (
 
-    <div>
+    <div className="mb-10">
 
 
       <UserInfo todayLog={todayLog} setTodayLog={setTodayLog} handleLogCreated={handleLogCreated} />
@@ -143,7 +143,7 @@ function DashboardPage() {
         <p>No daily plan available.</p>
 
       )} */}
-      <hr />
+      {/* <hr />
 
       <h2>Daily Progress</h2>
 
@@ -165,7 +165,7 @@ function DashboardPage() {
 
       )}
 
-      <hr />
+      <hr /> */}
 
       {/* <AIChatWidget /> */}
     </div>

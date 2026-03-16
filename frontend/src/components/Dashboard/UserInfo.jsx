@@ -1,5 +1,6 @@
 import React from 'react'
 import NotificationItem from './NotificationItem'
+import RiskSummary from './RiskSummary'
 
 const UserInfo = ({ todayLog, setTodayLog, handleLogCreated }) => {
 
@@ -81,7 +82,7 @@ const UserInfo = ({ todayLog, setTodayLog, handleLogCreated }) => {
 
                 <NotificationItem isTodayLogAdded={todayLog} handleLogCreated={handleLogCreated}/>
 
-                <NotificationItem isTodayLogAdded={false} />
+                <RiskSummary/>
 
             </div>
 
