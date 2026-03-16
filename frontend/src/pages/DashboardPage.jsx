@@ -79,66 +79,6 @@ function DashboardPage() {
         <PlanSection plan={plan} setPlan={setPlan} />
       ) : (<p>No daily plan available.</p>)}
 
-
-      {/* <h3>Daily Plan</h3>
-
-      {plan.days && plan.days.length > 0 ? (
-
-        <div>
-
-          {plan.days.map((day) => (
-
-            <div key={day.day} style={{ marginBottom: "15px" }}>
-
-              <h4>Day {day.day}</h4>
-
-              <ul>
-                {day.tasks.map((task, index) => (
-                  <li key={index}>{task}</li>
-                ))}
-              </ul>
-
-              <p>
-                Status: {day.completed ? "Completed ✅" : "Not completed"}
-              </p>
-
-              <label>
-                <input
-                  type="checkbox"
-                  checked={day.completed}
-                  disabled={day.completed}
-                  onChange={async () => {
-
-                    try {
-
-                      await API.patch(`/plan/day/${day.day}`);
-
-                      // refresh plan after update
-                      fetchPlan();
-
-                    } catch (error) {
-
-                      console.error("Failed to update day status");
-
-                    }
-
-                  }}
-                />
-
-                {day.completed ? " Completed ✅" : " Mark as completed"}
-
-              </label>
-            </div>
-
-          ))}
-
-        </div>
-
-      ) : (
-
-        <p>No daily plan available.</p>
-
-      )} */}
       <hr />
 
       <h2>Daily Progress</h2>

@@ -7,7 +7,7 @@ import AssessmentPage from "./pages/AssessmentPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./components/Layouts/DashboardLayout";
 import SummaryPage from "./pages/SummaryPage";
-
+import RecoverySpacePage from "./pages/RecoverySpacePage";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         }>
           <Route index element={<DashboardPage />} />
           <Route path="summary" element={< SummaryPage />} />
+          <Route path="recovery" element={<RecoverySpacePage />} />
         </Route>
 
 
