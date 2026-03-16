@@ -12,7 +12,7 @@ function DashboardPage() {
   const [plan, setPlan] = useState(null);
   const [todayLog, setTodayLog] = useState(null);
 
-  console.log(plan)
+  console.log(todayLog)
   // fetch recovery plan
   const fetchPlan = async () => {
 
@@ -64,7 +64,6 @@ function DashboardPage() {
 
   }, []);
 
-  console.log(plan)
 
   if (!plan) {
     return <h2>Loading your recovery plan...</h2>;
@@ -75,7 +74,7 @@ function DashboardPage() {
     <div>
 
 
-      <UserInfo />
+      <UserInfo todayLog={todayLog} setTodayLog={setTodayLog} handleLogCreated={handleLogCreated} />
 
       <HeroSection motivation={plan?.motivation} goodHabit={plan?.goodHabit} planSteps={plan?.planSteps} />
 

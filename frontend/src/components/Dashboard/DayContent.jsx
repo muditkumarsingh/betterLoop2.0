@@ -29,8 +29,6 @@ const DayContent = ({ isToday, day, setPlan }) => {
     }
   };
 
-  console.log(day.day);
-
   if (isToday) {
     // setIsContentOpen(true)
 
