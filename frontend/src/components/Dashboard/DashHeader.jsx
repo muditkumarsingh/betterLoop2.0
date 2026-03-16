@@ -10,7 +10,7 @@ const DashHeader = () => {
         <header className='w-full py-6 relative flex justify-center'>
 
             {/* Header Container */}
-            <div className='w-[95%] lg:w-[85%] px-8 py-4 
+            <div className='w-full mx-5 md:mx-10 lg:mx-30 px-8 py-4 
             bg-white/70 backdrop-blur-md
             border border-gray-200
             shadow-md rounded-2xl 
