@@ -5,12 +5,14 @@ import ProgressStats from "../components/ProgressStats";
 import AIChatWidget from "../components/AIChatWidget";
 import PlanSection from "../components/Dashboard/PlanSection";
 import HeroSection from "../components/Dashboard/HeroSection";
+import UserInfo from "../components/Dashboard/UserInfo";
 
 function DashboardPage() {
 
   const [plan, setPlan] = useState(null);
   const [todayLog, setTodayLog] = useState(null);
 
+  console.log(plan)
   // fetch recovery plan
   const fetchPlan = async () => {
 
@@ -71,8 +73,11 @@ function DashboardPage() {
   return (
 
     <div>
- 
-      <HeroSection motivation={plan?.motivation} goodHabit={plan?.goodHabit} planSteps={plan?.planSteps}/>
+
+
+      <UserInfo />
+
+      <HeroSection motivation={plan?.motivation} goodHabit={plan?.goodHabit} planSteps={plan?.planSteps} />
 
       {plan.days && plan.days.length > 0 ? (
 

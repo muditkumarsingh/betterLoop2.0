@@ -5,8 +5,6 @@ const SummaryPage = () => {
     return (
         <div>
              <ProgressStats />
-
-
         </div>
     )
 }
