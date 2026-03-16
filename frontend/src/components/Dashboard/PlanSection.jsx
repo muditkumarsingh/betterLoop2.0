@@ -3,20 +3,20 @@ import DayContent from './DayContent'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 
-const PlanSection = ({ plan,setPlan }) => {
-    const containerRef = useRef(null);
+const PlanSection = ({ plan, setPlan }) => {
+  const containerRef = useRef(null);
   const itemRefs = useRef([]);
-    const todayRef = useRef(null)
-    console.log("Plan : ",plan);
-    useEffect(() => {
-        if (todayRef.current) {
-            todayRef.current.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            })
-        }
-    }, [])
-    const updateItemStyles = () => {
+  const todayRef = useRef(null)
+  console.log("Plan : ", plan);
+  useEffect(() => {
+    if (todayRef.current) {
+      todayRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      })
+    }
+  }, [])
+  const updateItemStyles = () => {
     if (!containerRef.current || !itemRefs.current[0]) return;
     const container = containerRef.current;
     const scrollHeight = container.scrollHeight - container.clientHeight;
@@ -25,14 +25,14 @@ const PlanSection = ({ plan,setPlan }) => {
     const focusY = halfItemHeight + (container.clientHeight - halfItemHeight * 2) * scrollProgress;
     const absoluteFocusLine = container.scrollTop + focusY;
   };
- useLayoutEffect(() => {
+  useLayoutEffect(() => {
     updateItemStyles();
   }, [plan]);
 
-//    const firstIncompleteDayObj = plan.find((day) => !day.completed);
-//   const firstIncompleteDay = firstIncompleteDayObj ? firstIncompleteDayObj.day : null;
-   const firstIncompleteDay = plan.days?.find(day => !day.completed).day;
-   const completedCount = plan?.days.filter((d) => d.completed).length;
+  //    const firstIncompleteDayObj = plan.find((day) => !day.completed);
+  //   const firstIncompleteDay = firstIncompleteDayObj ? firstIncompleteDayObj.day : null;
+  const firstIncompleteDay = plan.days?.find(day => !day.completed).day;
+  const completedCount = plan?.days.filter((d) => d.completed).length;
   const totalCount = plan?.days.length;
   const progressPercent = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
   useEffect(() => {
@@ -57,7 +57,7 @@ const PlanSection = ({ plan,setPlan }) => {
       }, 150);
     }
   }, [plan, firstIncompleteDay]);
- const handleScroll = () => {
+  const handleScroll = () => {
     requestAnimationFrame(updateItemStyles);
   };
 
@@ -67,9 +67,9 @@ const PlanSection = ({ plan,setPlan }) => {
     return "#d1d5db";
   };
 
-  
 
-    return (
+
+  return (
     <div className="w-full mt-4">
       {/* Header */}
       <div className="px-1 mb-3">
@@ -120,7 +120,7 @@ const PlanSection = ({ plan,setPlan }) => {
                   boxShadow: "0 0 0 2px white",
                 }}
               />
-              <DayContent key={index} day={item} isToday={item.day === firstIncompleteDay} setPlan = {setPlan}/>
+              <DayContent key={index} day={item} isToday={item.day === firstIncompleteDay} setPlan={setPlan} />
             </div>
           );
         })}
