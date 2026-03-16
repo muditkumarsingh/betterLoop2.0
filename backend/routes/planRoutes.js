@@ -90,6 +90,10 @@ router.get("/:userId", authMiddleware, async (req, res) => {
 // UPDATE DAY COMPLETION
 router.patch("/day/:dayNumber", authMiddleware, async (req, res) => {
 
+  console.log("SERVER TIME:", new Date());
+  console.log("ISO DATE:", new Date().toISOString());
+  console.log("LOCAL DATE:", new Date().toLocaleDateString("en-CA"));
+
   try {
 
     const dayNumber = parseInt(req.params.dayNumber);
@@ -102,7 +106,8 @@ router.patch("/day/:dayNumber", authMiddleware, async (req, res) => {
       return res.status(404).json({ message: "Plan not found" });
     }
 
-    const today = new Date().toISOString().split("T")[0];
+    // FIXED LINE
+    const today = new Date().toLocaleDateString("en-CA");
 
     // check if user already completed a day today
     const alreadyCompletedToday = plan.days.find(
@@ -139,6 +144,8 @@ router.patch("/day/:dayNumber", authMiddleware, async (req, res) => {
     day.completed = true;
     day.completedAt = today;
 
+    console.log("Server today:", today);
+
     await plan.save();
 
     res.json({
@@ -147,9 +154,7 @@ router.patch("/day/:dayNumber", authMiddleware, async (req, res) => {
     });
 
   } catch (error) {
-
     res.status(500).json({ error: error.message });
-
   }
 
 });
