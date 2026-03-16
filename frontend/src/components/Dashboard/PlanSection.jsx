@@ -67,14 +67,14 @@ const PlanSection = ({ plan,setPlan }) => {
     return "#d1d5db";
   };
 
-    console.log(plan)
+  
 
     return (
     <div className="w-full mt-4">
       {/* Header */}
       <div className="px-1 mb-3">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-sm font-semibold text-gray-700 tracking-wide">Your Plan</span>
+          <span className="text-lg font-semibold text-gray-700 tracking-wide">Your Plan</span>
           <span className="text-sm font-bold text-gray-800">
             {completedCount}
             <span className="text-gray-400 font-normal">/{totalCount}</span>
@@ -89,7 +89,7 @@ const PlanSection = ({ plan,setPlan }) => {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="w-full h-[50vh] bg-red-100 px-5 rounded-lg overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        className="w-full h-[60vh] bg-red-100 px-5 rounded-lg overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
       >
         {plan?.days.map((item, index) => {
           const color = getDayColor(item);

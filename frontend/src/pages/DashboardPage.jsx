@@ -4,6 +4,7 @@ import API from "../services/api";
 import ProgressStats from "../components/ProgressStats";
 import AIChatWidget from "../components/AIChatWidget";
 import PlanSection from "../components/Dashboard/PlanSection";
+import HeroSection from "../components/Dashboard/HeroSection";
 
 function DashboardPage() {
 
@@ -70,24 +71,8 @@ function DashboardPage() {
   return (
 
     <div>
-
-      <h2>Your Recovery Plan</h2>
-
-      <h3>Motivation</h3>
-      <p>{plan.motivation}</p>
-
-      <h3>Good Habit</h3>
-      <p>{plan.goodHabit}</p>
-
-      <h3>Plan Steps</h3>
-
-      <ul>
-        {plan.planSteps.map((step, index) => (
-          <li key={index}>{step}</li>
-        ))}
-      </ul>
-      <hr />
-
+ 
+      <HeroSection motivation={plan?.motivation} goodHabit={plan?.goodHabit} planSteps={plan?.planSteps}/>
 
       {plan.days && plan.days.length > 0 ? (
 
