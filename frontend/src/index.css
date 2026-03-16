@@ -109,3 +109,26 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Don't delete it imporant for heatmaps */
+/* Custom Heatmap Styles */
+.custom-heatmap-container .react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #9ca3af; /* Tailwind gray-400 */
+}
+
+.custom-heatmap-container .react-calendar-heatmap rect {
+  rx: 2px; /* Rounds the corners of the heatmap squares */
+  ry: 2px;
+}
+
+.custom-heatmap-container .color-empty { fill: #f3f4f6; }   /* gray-100 */
+.custom-heatmap-container .color-clean { fill: #4caf50; }   /* Green */
+.custom-heatmap-container .color-trigger { fill: #ff9800; } /* Orange */
+.custom-heatmap-container .color-relapse { fill: #f44336; } /* Red */
+
+/* Add a nice hover effect to the squares */
+.custom-heatmap-container .react-calendar-heatmap rect:hover {
+  stroke: #1f2937;
+  stroke-width: 1px;
+}
