@@ -89,7 +89,7 @@ const PlanSection = ({ plan, setPlan }) => {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="w-full h-[60vh] bg-red-100 px-5 rounded-lg overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        className="w-full h-[60vh] px-5 rounded-lg overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
       >
         {plan?.days.map((item, index) => {
           const color = getDayColor(item);
