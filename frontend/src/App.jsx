@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./components/Layouts/DashboardLayout";
 import SummaryPage from "./pages/SummaryPage";
 import RecoverySpacePage from "./pages/RecoverySpacePage";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="bg-[#EFE7E1]">
@@ -32,6 +32,7 @@ function App() {
 
         <Route path="/assessment" element={<AssessmentPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
