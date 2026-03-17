@@ -29,6 +29,7 @@ app.use("/api/stats", statsRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/risk", riskRoutes);
 app.use("/api/recovery", recoveryRoutes);
+app.use("/api/user", recoveryRoutes);
 
 // test route
 app.get("/", (req, res) => {

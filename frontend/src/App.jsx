@@ -11,7 +11,7 @@ import RecoverySpacePage from "./pages/RecoverySpacePage";
 
 function App() {
   return (
-    <div>
+    <div className="bg-[#EFE7E1]">
 
       <Routes>
         <Route path="/" element={<HomePage />} />

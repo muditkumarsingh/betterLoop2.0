@@ -59,6 +59,7 @@ const DashHeader = () => {
 
                         <HeaderButton data={'HOME'} route='index' mobileView={true} setIsMenuOpen={setIsMenuOpen} />
                         <HeaderButton data={'SUMMARY'} route='summary' mobileView={true} setIsMenuOpen={setIsMenuOpen} />
+                        <HeaderButton data={'RECOVERY'} route='recovery' />
                         <HeaderButton data={'TESTIMONIALS'} route='testimonials' mobileView={true} setIsMenuOpen={setIsMenuOpen} />
                         <HeaderButton data={'ABOUT'} route='about' mobileView={true} setIsMenuOpen={setIsMenuOpen} />
 

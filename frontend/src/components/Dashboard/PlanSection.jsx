@@ -80,7 +80,7 @@ const PlanSection = ({ plan, setPlan }) => {
             <span className="text-gray-400 font-normal">/{totalCount}</span>
           </span>
         </div>
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#e5e7eb", borderRadius: "999px", overflow: "hidden" }}>
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#ffffff", borderRadius: "999px", overflow: "hidden" }}>
           <div style={{ height: "100%", width: `${progressPercent}%`, backgroundColor: "#22c55e", borderRadius: "999px", transition: "width 0.5s ease" }} />
         </div>
       </div>
