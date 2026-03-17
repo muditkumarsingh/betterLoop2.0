@@ -27,6 +27,7 @@ const DashHeader = () => {
                 <div className='hidden md:flex gap-6 items-center text-sm font-medium'>
                     <HeaderButton data={'HOME'} route='index' />
                     <HeaderButton data={'SUMMARY'} route='summary' />
+                    <HeaderButton data={'RECOVERY'} route='recovery' />
                     <HeaderButton data={'TESTIMONIALS'} route='testimonials' />
                     <HeaderButton data={'ABOUT'} route='about' />
                 </div>
