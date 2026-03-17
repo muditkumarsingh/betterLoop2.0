@@ -52,7 +52,7 @@ function DailyLogForm({ onLogCreated, setIsModalOpen }) {
     >
 
       <div
-        className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md"
+        className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md max-h-[90vh] overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
 

@@ -3,9 +3,9 @@ import { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import LogModal from "../LogModal";
 
-const NotificationItem = ({ isTodayLogAdded, handleLogCreated }) => {
+const NotificationItem = ({ isTodayLogAdded, handleLogCreated,isModalOpen,setIsModalOpen }) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    // const [isModalOpen, setIsModalOpen] = useState(false)
 
     const bgColor = isTodayLogAdded
         ? "bg-green-100 hover:bg-green-200"
@@ -26,7 +26,7 @@ const NotificationItem = ({ isTodayLogAdded, handleLogCreated }) => {
 
     return (
         <>
-            <LogModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleLogCreated={handleLogCreated} />
+            {/* <LogModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleLogCreated={handleLogCreated} /> */}
             <div className={`flex-1 flex items-center justify-between transition p-4 rounded-xl ${bgColor}`}
                 onClick={handleClick}
             >
